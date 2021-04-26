@@ -10,8 +10,6 @@ services:
   phpmyadmin:
     image: lumen/phpmyadmin:5
     restart: always
-    ports:
-      - 9090:9090
     environment:
       - PMA_ARBITRARY=1
 
