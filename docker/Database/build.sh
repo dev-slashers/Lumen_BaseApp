@@ -1,0 +1,1 @@
+docker build -t lumen/mysql:5.6.44 .

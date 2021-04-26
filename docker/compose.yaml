@@ -1,0 +1,29 @@
+version: '3'
+services:
+  app:
+    image: lumen/php:7.1.27
+    volumes:
+      - ../app:/var/www/html
+    ports:
+      - 80:80
+    environment:
+      - XDEBUG_REMOTE_HOST=192.168.0.12 #You local IP
+
+  phpmyadmin:
+    image: phpmyadmin:5
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+
+  mydb:
+    image: lumen/mysql:5.6.44
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./Database/resource/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: example

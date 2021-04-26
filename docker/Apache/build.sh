@@ -1,0 +1,1 @@
+docker build -t lumen/php:7.1.27 .
