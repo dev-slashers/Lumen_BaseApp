@@ -1,0 +1,1 @@
+docker build -t lumen/httpd:2.4.46 .
