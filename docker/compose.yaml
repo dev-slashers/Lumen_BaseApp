@@ -2,6 +2,8 @@ version: '3'
 services:
   lumen:
     image: lumen/php:7.1.27
+    ports:
+      - 8080:8080
     volumes:
       - ../app:/var/www/html
     environment:
@@ -10,6 +12,8 @@ services:
   phpmyadmin:
     image: lumen/phpmyadmin:5
     restart: always
+    ports:
+      - 8181:8181
     environment:
       - PMA_ARBITRARY=1
 

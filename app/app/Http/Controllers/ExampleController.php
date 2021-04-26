@@ -14,5 +14,12 @@ class ExampleController extends Controller
         //
     }
 
+
+    public function sayHello() {
+        $message = array('welcome_messsage' => 'Welcome to Lumen API Rest App');
+
+        return response()->json($message);
+    }
+
     //
 }
