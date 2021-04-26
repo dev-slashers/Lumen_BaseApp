@@ -19,4 +19,5 @@ $router->get('/', function () use ($router) {
 $router->get('/hello', 'ExampleController@sayHello');
 
 
-$router->post('/auth/login', 'Auth\AuthController@login');
+$router->post('/api/auth/login', 'Auth\AuthController@login');
+$router->get('/api/photos', ['middleware' => 'Authenticate', 'PhotoController@getPhoto']);

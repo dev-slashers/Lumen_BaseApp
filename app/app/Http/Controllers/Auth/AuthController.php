@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
+
     public function login(Request $request) {
         $req = $request->json()->all();
         $user = DB::table('Users')
@@ -37,12 +38,12 @@ class AuthController extends Controller
             $encryption = Factory::create($algorithm);
             $serializedToken = $jwt->serialize($token, $encryption);
 
-            $response = array('alert' => 'User success logged', 'jwt_key' => $serializedToken);
+            $response = array('status_code' => 200, 'alert' => 'User success logged', 'jwt_key' => $serializedToken);
         }else {
-            $response = array('alert' => 'User not found');
+            $response = array('status_code' => 401, 'alert' => 'User not found');
         }
 
-        return response()->json($response);
+        return response()->json($response,$response["status_code"]);
 
     }
 
