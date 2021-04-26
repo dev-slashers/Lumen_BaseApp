@@ -7,13 +7,13 @@ services:
     environment:
       - XDEBUG_REMOTE_HOST=192.168.0.12 #You local IP
 
-  #phpmyadmin:
-  #  image: phpmyadmin:5
-  #  restart: always
-  #  ports:
-  #    - 8080:80
-  #  environment:
-  #    - PMA_ARBITRARY=1
+  phpmyadmin:
+    image: lumen/phpmyadmin:5
+    restart: always
+    ports:
+      - 9090:9090
+    environment:
+      - PMA_ARBITRARY=1
 
   db:
     image: lumen/mysql:5.6.44
