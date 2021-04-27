@@ -3,7 +3,7 @@ This environment create a current structure
 
 - php 7.1.27
 - xdebug 
-- mysql 5.6.44
+- mysql 8.0
 - Apache 2.4.25
 
 
