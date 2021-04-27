@@ -21,7 +21,9 @@ class JwtMiddleware
         $currentTime = new \DateTime();
         $header = $request->bearerToken();
         $payload = json_decode($jwt->deserialize($header)->getPayload()->jsonSerialize(), true);
-        if($payload["exp"] <= $currentTime->getTimestamp()) {
+        $dateDiff = $payload["exp"] - $currentTime->getTimestamp();
+
+        if($dateDiff >= 0) {
             return $next($request);
         }else {
             return redirect('/hello');

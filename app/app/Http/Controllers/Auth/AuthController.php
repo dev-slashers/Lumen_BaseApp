@@ -30,11 +30,11 @@ class AuthController extends Controller
             $payload = array('user_id' => $user->id, 'email' => $user->email);
 
             $token->addClaim(new Claim\Audience($payload));
-            $token->addClaim(new Claim\Expiration(new \DateTime('30 minutes')));
+            $token->addClaim(new Claim\Expiration(new \DateTime(env('JWT_EXPIRATION_TIME'))));
             $token->addClaim(new Claim\NotBefore(new \DateTime('now')));
             $token->addClaim(new Claim\Subject('auth'));
 
-            $algorithm = new Hs256(env('JWR_SECRET_KEY'));
+            $algorithm = new Hs256(env('JWT_SECRET_KEY'));
             $encryption = Factory::create($algorithm);
             $serializedToken = $jwt->serialize($token, $encryption);
 

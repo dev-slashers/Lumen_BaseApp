@@ -28,8 +28,13 @@ $router->post('/api/auth/login', [
 ]);
 
 
-$router->get('/api/photos',
-    [
+$router->get('/api/photo', [
         'middleware' => 'jwt',
         'uses'=> 'PhotoController@getPhoto'
-    ]);
+]);
+
+
+$router->get('api/photo/{albumId}', [
+        'middleware' => 'jwt',
+        'uses' => 'PhotoController@photoDetail'
+]);
