@@ -16,8 +16,20 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->get('/hello', 'ExampleController@sayHello');
+$router->get('/hello', [
+    'middleware' => 'default',
+    'uses' => 'ExampleController@sayHello'
+]);
 
 
-$router->post('/api/auth/login', 'Auth\AuthController@login');
-$router->get('/api/photos', ['middleware' => 'Authenticate', 'PhotoController@getPhoto']);
+$router->post('/api/auth/login', [
+    'middleware' => 'default',
+    'uses' =>  'Auth\AuthController@login'
+]);
+
+
+$router->get('/api/photos',
+    [
+        'middleware' => 'jwt',
+        'uses'=> 'PhotoController@getPhoto'
+    ]);
