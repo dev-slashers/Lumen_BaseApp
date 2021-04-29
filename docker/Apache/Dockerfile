@@ -7,6 +7,8 @@ COPY apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/000-def
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 RUN pecl install xdebug-2.5.0 && docker-php-ext-enable xdebug
 COPY php/php.ini /usr/local/etc/php/php.ini
+RUN a2enmod rewrite
+RUN a2enmod rewrite
 RUN usermod -u 1000 www-data
 RUN usermod -G staff www-data
 CMD ["bash", "/start.sh"]

@@ -7,6 +7,15 @@ This environment create a current structure
 - Apache 2.4.25
 
 
+
+## Usage
+- Build Docker image running:
+    - `docker/Apache/build.sh`
+    - `docker/Database/build.sh`
+    - `docker/Httpd/build.sh`
+    - `docker/PhpMyAdmin/build.sh`
+
+- Running `docker-compose -f compose.yaml up -d`
 ## How to open TCP Docker Port on Mac OS
 
 ```
