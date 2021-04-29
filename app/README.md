@@ -13,9 +13,9 @@ This App based with lumen framework ( Laravel based )
 
 ### Usage 
 
-- login to get token:
+- Get JWT token:
 ```
-curl --location --request POST 'http://localhost:8080/api/auth/login' \
+curl --location --request POST 'http://localhost/app/api/auth/login' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "email":"salvatore.turboli@gmail.com",
@@ -26,13 +26,13 @@ curl --location --request POST 'http://localhost:8080/api/auth/login' \
 - get All Photos:
 
 ```
-curl --location --request GET 'http://localhost:8080/api/photo' \
+curl --location --request GET 'http://localhost/app/api/photo' \
 --header 'Authorization: Bearer <Generated Token>
 ```
 
 - get Photo Detail:
 
 ```
-curl --location --request GET 'http://localhost:8080/api/photo/albumId' \
+curl --location --request GET 'http://localhost/app/api/photo/<id>' \
 --header 'Authorization: Bearer <Generated Token>
 ```
